@@ -1,18 +1,18 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "client",
+  "productName": "rudt-africa",
   "version": "0.1.0",
   "identifier": "com.tauri.dev",
   "build": {
     "frontendDist": ".next",
     "devUrl": "http://localhost:3000",
-    "beforeDevCommand": "pnpm dev",
-    "beforeBuildCommand": "pnpm build"
+    "beforeDevCommand": "pnpm run dev",
+    "beforeBuildCommand": "pnpm run build"
   },
   "app": {
     "windows": [
       {
-        "title": "client",
+        "title": "rust-africa",
         "width": 800,
         "height": 600,
         "resizable": true,
