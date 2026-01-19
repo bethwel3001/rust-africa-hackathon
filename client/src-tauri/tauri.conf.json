@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "rudt-africa",
+  "productName": "CodeCollab",
   "version": "0.1.0",
-  "identifier": "com.tauri.dev",
+  "identifier": "com.codecollab.dev",
   "build": {
     "frontendDist": ".next",
     "devUrl": "http://localhost:3000",
@@ -12,11 +12,26 @@
   "app": {
     "windows": [
       {
-        "title": "rust-africa",
-        "width": 800,
-        "height": 600,
+        "label": "main",
+        "title": "CodeCollab - Real-time Collaboration",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 700,
         "resizable": true,
-        "fullscreen": false
+        "fullscreen": false,
+        "center": true
+      },
+      {
+        "label": "maintwo",
+        "title": "CodeCollab - Real-time Collaboration -2",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 700,
+        "resizable": true,
+        "fullscreen": false,
+        "center": true
       }
     ],
     "security": {

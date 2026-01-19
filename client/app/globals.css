@@ -1,18 +1,312 @@
 @import "tailwindcss";
+
 :root {
-  background: #09090b;
-  color: #fff;
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+    --background: #09090b;
+    --foreground: #fafafa;
+    --primary: #3b82f6;
+    --primary-dim: rgba(59, 130, 246, 0.1);
+    --surface: #111113;
+    --border: #27272a;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    overflow: hidden;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Thin scrollbar variant */
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #3a3a3a;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #333 transparent;
+}
+
+/* Selection */
+::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: #fff;
+}
+
+/* Focus outline */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse-soft {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.2s ease-out;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+}
+
+.animate-slide-down {
+    animation: slide-down 0.3s ease-out;
+}
+
+.animate-slide-in-right {
+    animation: slide-in-right 0.3s ease-out;
+}
+
+.animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+}
+
+.animate-pulse-soft {
+    animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* Utility classes */
 @layer utilities {
-  .glow {
-    box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.5);
-  }
+    .glow {
+        box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.5);
+    }
+
+    .glow-green {
+        box-shadow: 0 0 20px -5px rgba(34, 197, 94, 0.5);
+    }
+
+    .glow-purple {
+        box-shadow: 0 0 20px -5px rgba(168, 85, 247, 0.5);
+    }
+
+    .text-shadow {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .gradient-border {
+        border: 1px solid transparent;
+        background:
+            linear-gradient(var(--background), var(--background)) padding-box,
+            linear-gradient(135deg, #3b82f6, #8b5cf6) border-box;
+    }
+}
+
+/* Monaco Editor Overrides */
+.monaco-editor {
+    --vscode-editor-background: #0c0c0d !important;
+}
+
+.monaco-editor .margin {
+    background-color: #0c0c0d !important;
+}
+
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+}
+
+.monaco-editor .monaco-scrollable-element > .scrollbar > .slider:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Remote cursor styles */
+.remote-cursor-widget {
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Code syntax highlighting for chat */
+code {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-family: "JetBrains Mono", "Fira Code", monospace;
+    font-size: 0.875em;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+}
+
+/* Button active state */
+button:active:not(:disabled) {
+    transform: scale(0.98);
+}
+
+/* Transition utilities */
+.transition-fast {
+    transition: all 0.1s ease;
+}
+
+.transition-normal {
+    transition: all 0.2s ease;
+}
+
+.transition-slow {
+    transition: all 0.3s ease;
+}
+
+/* Input placeholder styling */
+input::placeholder,
+textarea::placeholder {
+    color: #52525b;
+}
+
+/* Prevent text selection on UI elements */
+.select-none {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Ensure proper rendering of emojis */
+.emoji {
+    font-family:
+        "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+
+/* Responsive breakpoints for panels */
+@media (max-width: 1024px) {
+    .hide-on-small {
+        display: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
 }
