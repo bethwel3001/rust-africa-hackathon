@@ -6,15 +6,13 @@ import {
   VscAdd,
   VscTrash,
   VscChevronDown,
-  VscChevronRight,
   VscHistory,
-  VscSave,
   VscCopy,
   VscCheck,
   VscClose,
 } from "react-icons/vsc";
 import { useApiTesterStore } from "../store";
-import { api, HttpHeader } from "../lib/tauri";
+import { api } from "../lib/tauri";
 import { formatBytes, formatTime, cn } from "../lib/utils";
 
 const HTTP_METHODS = ["GET", "POST", "PUT", "PATCH", "DELETE"] as const;

@@ -188,7 +188,7 @@ function FileTreeItem({
       >
         {/* Expand/Collapse Icon */}
         {node.is_dir ? (
-          <span className="w-4 flex-shrink-0 flex items-center justify-center">
+          <span className="w-4 shrink-0 flex items-center justify-center">
             {isExpanded ? (
               <VscChevronDown size={14} />
             ) : (
@@ -196,11 +196,11 @@ function FileTreeItem({
             )}
           </span>
         ) : (
-          <span className="w-4 flex-shrink-0" />
+          <span className="w-4 shrink-0" />
         )}
 
         {/* File/Folder Icon */}
-        <span className="flex-shrink-0">
+        <span className="shrink-0">
           {getFileIcon(node.name, node.is_dir, isExpanded)}
         </span>
 
