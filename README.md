@@ -6,50 +6,50 @@ A **local-first**, real-time collaborative code editor built with Rust, Tauri, a
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![Protocol](https://img.shields.io/badge/Protocol-v1-green)
 
-## ✨ Features
+## Features
 
-### 🔄 Local-First CRDT Synchronization
+### Local-First CRDT Synchronization
 - **Automerge CRDTs**: Conflict-free document synchronization using Automerge
 - **Binary Protocol**: Efficient WebSocket communication with binary message encoding
 - **Offline Support**: Work offline and sync when reconnected
 - **No Conflicts**: Concurrent edits are automatically merged without conflicts
 
-### 👥 Real-time Collaboration
+### Real-time Collaboration
 - **Live Cursors**: See collaborators' cursor positions with stable Automerge cursors
 - **Presence Awareness**: Real-time status indicators (active, idle, away)
 - **User Colors**: Each collaborator gets a unique color
 - **Typing Indicators**: See when others are actively editing
 
-### 🎤 Voice Chat (LiveKit)
+### Voice Chat (LiveKit)
 - **Real-time Audio**: WebRTC-based voice communication via LiveKit
 - **Room-based**: Voice rooms tied to project collaboration
 - **Mute/Deafen**: Full audio controls
 - **Speaking Indicators**: Visual feedback when someone is talking
 
-### 📁 Movable Tree File System
+### Movable Tree File System
 - **CRDT File Tree**: Collaborative file/folder structure using movable tree CRDT
 - **On-Demand Loading**: File contents loaded when opened (not all at once)
 - **Host Model**: One user opens a local folder, others collaborate remotely
 - **Live Updates**: File/folder changes sync in real-time
 
-### 💻 Integrated Development Environment
+### Integrated Development Environment
 - **Monaco Editor**: VS Code's editor with 50+ language support
 - **Syntax Highlighting**: Automatic language detection
 - **Multi-File Tabs**: Work on multiple files simultaneously
 - **File Explorer**: Navigate project structure visually
 
-### 🧪 API Testing (Thunder Client Alternative)
+### API Testing (Thunder Client Alternative)
 - **HTTP Methods**: GET, POST, PUT, PATCH, DELETE support
 - **Headers Management**: Add and toggle request headers
 - **Request Body**: JSON body editor for POST/PUT/PATCH
 - **Response Viewer**: Status, time, size, and formatted body
 
-### 🤖 AI Debug Assistant
+### AI Debug Assistant
 - **Error Analysis**: Get help debugging errors
 - **Code Explanations**: Ask questions about code
 - **Quick Suggestions**: Pre-built prompts for common issues
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend (Rust)
 | Component | Technology |
@@ -70,13 +70,13 @@ A **local-first**, real-time collaborative code editor built with Rust, Tauri, a
 | State Management | [Zustand](https://zustand-demo.pmnd.rs/) |
 | Styling | [TailwindCSS](https://tailwindcss.com/) 4 |
 
-## 📋 Prerequisites
+## Prerequisites
 
 - [Rust](https://rustup.rs/) (1.77+)
 - [Node.js](https://nodejs.org/) (20+)
 - [pnpm](https://pnpm.io/) (recommended package manager)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Clone the repository
 
@@ -96,7 +96,7 @@ You should see:
 ```
 INFO collab_server: Initializing storage at: ./data/collab.sled
 INFO collab_server: Storage initialized successfully
-INFO collab_server: 🚀 CodeCollab server v0.2.0 starting
+INFO collab_server:    CodeCollab server v0.2.0 starting
 INFO collab_server:    Protocol version: 1
 INFO collab_server:    Listening on: http://0.0.0.0:5000
 INFO collab_server:    WebSocket: ws://0.0.0.0:5000/ws/{project_id}
@@ -122,7 +122,7 @@ Or run just the web interface:
 pnpm dev
 ```
 
-## 📖 Architecture
+## Architecture
 
 ### CRDT Synchronization Flow
 
@@ -203,7 +203,7 @@ Message types include:
 | `/api/rooms` | GET/POST | Alias for `/api/projects` |
 | `/api/rooms/{id}` | GET | Alias for `/api/projects/{id}` |
 
-## ⚙️ Configuration
+## Configuration
 
 ### Environment Variables
 
@@ -226,7 +226,7 @@ The server uses Sled for persistent storage with:
 - **Cache Size**: 1GB default (configurable)
 - **Flush Interval**: 500ms (configurable)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 rustafrica/
@@ -263,7 +263,7 @@ rustafrica/
 └── tests/                      # Test files
 ```
 
-## 🧪 Testing
+## Testing
 
 ### Server Tests
 
@@ -297,7 +297,7 @@ curl -X POST http://localhost:5000/api/projects \
 curl http://localhost:5000/api/projects
 ```
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Server won't start
 
@@ -323,7 +323,7 @@ curl http://localhost:5000/api/projects
 2. Check LiveKit server connectivity
 3. Verify microphone permissions in browser
 
-## 🏗️ Building for Production
+## Building for Production
 
 ### Build the server
 
@@ -356,7 +356,7 @@ EXPOSE 5000
 CMD ["collab-server"]
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
@@ -364,11 +364,11 @@ CMD ["collab-server"]
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 MIT License - see LICENSE for details
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Automerge](https://automerge.org/) - CRDT implementation
 - [Sled](https://sled.rs/) - Embedded database
